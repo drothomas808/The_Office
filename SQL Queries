@@ -1,0 +1,14 @@
+# 1. In which season did the show have the most people watching, with the highest number of viewers tuning in?
+SELECT season, 
+	   SUM(us_viewers)
+FROM the_office
+GROUP BY season
+ORDER BY season ASC;
+
+# 2. Is there a particular director who brought more viewers throughout the life span of the show and if so, how many episodes did they direct?
+SELECT directed_by as director,
+	   COUNT(*) AS episodes_directed,
+       SUM(us_viewers) as viewers
+FROM the_office
+GROUP BY director
+ORDER BY episodes_directed DESC;
